@@ -7,6 +7,7 @@
     --header-size-1: 2.250rem; /* H1 size */
     --header-size-2: 1.375rem; /* H2 size */
 
+    --spacing-50: 0.5rem;
     --spacing-100: 1rem; /* Base spacing */
     --spacing-200: 1.25rem; /* Larger spacing */
     --spacing-400: 2.5rem; /* XL spacing */
@@ -26,41 +27,43 @@
     box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
-html, body {
-    height: 100%; /* Use 100% to fill the viewport height */
-}
-
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-family: var(--font-family-main);
 }
+
 
 /* Header */
 header {
     display: flex;
     justify-content: center;
     align-items: center; /* Center items vertically */
+    width: 100vw;
     gap: var(--spacing-200);
-    margin: var(--spacing-500);
+    margin: var(--spacing-200);
 }
 
 header img {
-    height: 5rem;
+    height: var(--spacing-400);
 }
 
 .header-logo {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     padding: var(--spacing-200);
     border-radius: var(--spacing-100);
 }
 
 /* Navigation */
 nav {
+    position: sticky;
+    top: 0;
+    width: 100vw;
     font-size: var(--header-size-2);
-    background-color: rgba(255, 191, 105, 0.8); /* Light orange with 80% opacity */
-    backdrop-filter: blur(5px); /* Optional: add a blur effect behind the navbar */
-    padding: var(--spacing-200) 0; /* Add padding for spacing */
+    background-color: var(--primary-color-200);
+    padding: var(--spacing-200) 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 nav ul {
@@ -71,63 +74,87 @@ nav ul {
 
 nav li {
     list-style: none;
-    color: #fff; /* Change text color for visibility */
+    color: #fff; 
     font-weight: var(--font-weight-bold);
+}
+
+nav li:hover {
+    color: var(--primary-color-400);
+    cursor: pointer;
+    text-shadow: 0px 5px 5px var(--primary-color-100);;
 }
 
 /* Main */
 main {
-    flex: 1; /* Allow main to grow and take up available space */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center align the content horizontally */
-    gap: var(--spacing-400); /* Space between main sections */
-    margin: var(--spacing-400);
-    width: 100%; /* Use full width for main content */
+    gap: var(--spacing-400);
+    margin: var(--spacing-400) 0 ;
+    width: 95vw;
+    padding: var(--spacing-400);
+    border-radius: var(--spacing-50);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Center the section content */
-section {
+.main-section {
+
     display: flex;
-    justify-content: center; /* Center child items within the section */
-    width: 100%; /* Use full width */
-    margin-bottom: var(--spacing-200); /* Add bottom margin for spacing */
-}
-
-/* Main Section Article */
-.main-section article {
+    align-items: end;
     background: url('https://img.freepik.com/free-photo/beautiful-model-with-long-smooth-flying-blonde-hair-isolated-dark-grey-studio-background-young-caucasian-model-with-well-kept-skin-hair-blowing-air_155003-21877.jpg') no-repeat center center; /* Combined shorthand */
-    background-size: cover; /* Cover the entire area */
-    padding: var(--spacing-200); /* Add padding for internal spacing */
-    border-radius: 8px; /* Optional: Add border-radius for aesthetics */
-    width: 100%; /* Use full width */
-    max-width: 1600px; /* Set a maximum width for better responsiveness */
-    min-height: 40vh; /* Adjusted minimum height for better visibility */
-    color: white; /* Change text color for contrast */
+    background-size:cover;
+    border-radius: 8px;
+    min-height: 50vh;
+}
+.main-section article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-200);
+    color: var(--primary-color-400);
+    padding: var(--spacing-400);
+
 }
 
-/* Sub Sections */
+.main-section button {
+    padding: var(--spacing-100);
+    border-radius: var(--spacing-400);
+    background-color: var(--primary-color-200);
+    border: none;
+    width: 200px;
+    font-size: var(--header-size-2);
+}
+
+.main-section button:hover {
+    background-color: var(--primary-color-300);
+    cursor: pointer;
+}
+
 .sub-sections {
     display: flex;
-    justify-content: center;
-    gap: var(--spacing-200); /* Space between sub-section articles */
+    flex: auto;
+    gap: var(--spacing-200);
 }
 
 .sub-sections article {
     background-color: var(--primary-color-200);
-    padding: var(--spacing-200); /* Add padding for internal spacing */
-    border-radius: 8px; /* Optional: Add border-radius for aesthetics */
+    padding: var(--spacing-200);
+    border-radius: 8px;
 }
+
+
+
+
 
 /* Footer */
 footer {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Center items vertically */
-    background-color: var(--primary-color-100);
-    padding: var(--spacing-200) var(--spacing-400); /* Add padding for spacing */
+    align-items: center; 
+    width: 100vw;
+    background-color: var(--primary-color-200);
+    padding: var(--spacing-200) var(--spacing-400);
 }
 
 footer img {
-    height: 5rem; /* Set footer logo height */
+    height: 5rem;
 }
